@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'chefs/index'
+
 	root 'pages#home'
   	get '/home', to: 'pages#home'
 
@@ -18,5 +20,9 @@ Rails.application.routes.draw do
         post 'like'
       end 
     end
+
+    resources :chefs, except: [:new]
+
+    get '/register', to: 'chefs#new'
   
 end
